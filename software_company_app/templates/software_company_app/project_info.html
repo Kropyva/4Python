@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Information</title>
+</head>
+
+<body>
+
+    <h1>Project Information</h1>
+
+    <p><em><span style="color:blue;">Автор: Кропивка Анатолій Анатолійович, Група: КН20002б</span></em></p>
+
+
+    <h2>Errors</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Description</th>
+                <th>Date Received</th>
+                <th>Error Level</th>
+                <th>Functionality Category</th>
+                <th>Source</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for error in errors %}
+            <tr>
+                <td>{{ error.code }}</td>
+                <td>{{ error.description }}</td>
+                <td>{{ error.date_received }}</td>
+                <td>{{ error.error_level }}</td>
+                <td>{{ error.functionality_category }}</td>
+                <td>{{ error.source }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Programmers</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for programmer in programmers %}
+            <tr>
+                <td>{{ programmer.code }}</td>
+                <td>{{ programmer.last_name }}</td>
+                <td>{{ programmer.first_name }}</td>
+                <td>{{ programmer.phone }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Error Corrections</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Correction Code</th>
+                <th>Error Code</th>
+                <th>Start Date</th>
+                <th>Correction Period</th>
+                <th>Programmer</th>
+                <th>Cost per Day</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for correction in corrections %}
+            <tr>
+                <td>{{ correction.correction_code }}</td>
+                <td>{{ correction.error_code }}</td>
+                <td>{{ correction.start_date }}</td>
+                <td>{{ correction.correction_period }}</td>
+                <td>{{ correction.programmer.first_name }} {{ correction.programmer.last_name }}</td>
+                <td>{{ correction.cost_per_day }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>
